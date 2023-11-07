@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/grid.css">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/reponsive.css">
+    <link rel="icon" href="/assets/image/logo-mp3/icon_zing_mp3.png" type="image/x-icon" />
+    <title>Zing Mp3</title>
+</head>
+<body>
+    <!-- App -->
+    <div class="app grid" style="background-image : url('/assets/image/theme1.svg')">
+
+        <!-- Cột điều hướng bên trái ---------------------------------------------------------------->
+        <div class="app_sidebar">
+            <div class="app_sidebar-logo">
+                <img src="/assets/image/logos/main-logo.svg" alt="">
+            </div>
+            <ul class="app_sidebar-list">
+                <li class="app_sidebar-item sidebar-tab-left active">
+                    <a href="#" class="app_sidebar-item-link">
+                        <i class="bi bi-music-player"></i>
+                        <span>Cá Nhân</span>
+                    </a>
+                </li>
+                <li class="app_sidebar-item sidebar-tab-left">
+                    <a href="#" class="app_sidebar-item-link">
+                        <i class="bi bi-vinyl"></i>
+                        <span>Khám Phá</span>
+                    </a>
+                </li>
+                <li class="app_sidebar-item sidebar-tab-left">
+                    <a href="#" class="app_sidebar-item-link">
+                        <i class="bi bi-music-note-list"></i>
+                        <span>#zingchart</span>
+                    </a>
+                </li>
+                <li class="app_sidebar-item sidebar-tab-left">
+                    <a href="#" class="app_sidebar-item-link">
+                        <i class="bi bi-soundwave"></i>
+                        <span>Radio</span>
+                        <span class="live">LIVE</span>
+                    </a>
+                </li>
+                <li class="app_sidebar-item sidebar-tab-left">
+                    <a href="#" class="app_sidebar-item-link">
+                        <i class="bi bi-file-earmark-slides"></i>
+                        <span>Theo Dõi</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="subnav-menu-sidebar">
+                <ul class="app_sidebar-list-under">
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <i class="bi bi-music-note-beamed"></i>
+                            <span>Nhạc Mới</span>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <i class="bi bi-slack"></i>
+                            <span>Thể Loại</span>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <i class="bi bi-star"></i>
+                            <span>Top 100</span>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <i class="bi bi-camera-video"></i>
+                            <span>MV</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="sidebar-buy-vip">
+                            <span>Nghe nhạc không quảng cáo cùng kho nhạc VIP</span>
+                            <button>MUA VIP</button>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="subnav-menu-sidebar_library">
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <h2 style="font-weight: 600;">Thư Viện</h2>
+                            <i class="bi bi-pencil hide-on-tablet" style="font-size: 1.4rem; margin-left: 68px;"></i>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="0783s0j89a" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#3CA2FF"></stop>
+                                        <stop offset="100%" stop-color="#008FFF"></stop>
+                                    </linearGradient>
+                                    <linearGradient id="prx3tly02b" x1="21.839%" x2="21.839%" y1="43.679%" y2="100%">
+                                        <stop offset="0%" stop-color="#FFF"></stop>
+                                        <stop offset="100%" stop-color="#FFF" stop-opacity=".9"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <g fill="none" fill-rule="evenodd">
+                                    <g>
+                                        <g>
+                                            <path fill="url(#0783s0j89a)" d="M.516 7.143c.812-3.928 3.31-6.115 7.207-6.776 2.88-.489 5.762-.495 8.637.014 4.012.709 6.424 3.024 7.192 7.011.594 3.082.603 6.196-.009 9.274-.821 3.9-3.384 6.309-7.266 6.967-2.88.489-5.762.495-8.637-.014-4.012-.709-6.435-3.14-7.203-7.127-.624-3.102-.564-6.235.08-9.349z" transform="translate(-21 -433) translate(21 433)"></path>
+                                            <path fill="url(#prx3tly02b)" d="M3.995 9.479c-.245.48-.245 1.11-.245 2.371v3.3c0 1.26 0 1.89.245 2.371.216.424.56.768.984.984.48.245 1.11.245 2.371.245h9.3c1.26 0 1.89 0 2.372-.245.423-.216.767-.56.983-.983.245-.482.245-1.112.245-2.372v-3.3c0-1.26 0-1.89-.245-2.371-.216-.424-.56-.768-.983-.984-.482-.245-1.112-.245-2.372-.245h-9.3c-1.26 0-1.89 0-2.371.245-.424.216-.768.56-.984.984zm8.567.571l.06.004.068.015.057.02.017.008c.556.27 1.067.623 1.516 1.046.075.07.148.142.22.217.172.18.166.464-.014.636-.18.172-.464.167-.636-.013-.061-.063-.123-.125-.187-.185-.202-.19-.42-.365-.65-.521v3.442c0 1.025-.832 1.856-1.857 1.856S9.3 15.744 9.3 14.719c0-1.025.831-1.856 1.856-1.856.35 0 .677.096.957.264V10.5c0-.249.201-.45.45-.45z" transform="translate(-21 -433) translate(21 433)"></path>
+                                            <path fill="#FFF" fill-opacity=".6" fill-rule="nonzero" d="M7.5 5.25c0-.414.336-.75.75-.75h7.5c.414 0 .75.336.75.75h-9z" transform="translate(-21 -433) translate(21 433)"></path>
+                                            <path fill="#FFF" fill-opacity=".9" fill-rule="nonzero" d="M6 6.75c0-.414.336-.75.75-.75h10.5c.414 0 .75.336.75.75H6z" transform="translate(-21 -433) translate(21 433)"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>Bài hát</span>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="ghd4ngt38a" x1="50%" x2="50%" y1="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#9FD465"></stop>
+                                        <stop offset="100%" stop-color="#70B129"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <g fill="none" fill-rule="evenodd">
+                                    <g>
+                                        <g>
+                                            <path fill="url(#ghd4ngt38a)" d="M.516 7.143c.812-3.928 3.31-6.115 7.207-6.776 2.88-.489 5.762-.495 8.637.014 4.012.709 6.424 3.024 7.192 7.011.594 3.082.603 6.196-.009 9.274-.821 3.9-3.384 6.309-7.266 6.967-2.88.489-5.762.495-8.637-.014-4.012-.709-6.435-3.14-7.203-7.127-.624-3.102-.564-6.235.08-9.349z" transform="translate(-21 -467) translate(21 467)"></path>
+                                            <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 11.5h5m-5 3h5M6 17.5h12.5" transform="translate(-21 -467) translate(21 467)"></path>
+                                            <path fill="#FFF" d="M10.786 4.025c-.053-.016-.11-.025-.167-.025-.316 0-.572.262-.572.585v4.782c-.532-.44-1.21-.704-1.948-.704C6.387 8.663 5 10.082 5 11.831 5 13.581 6.387 15 8.099 15c1.711 0 3.099-1.419 3.099-3.169 0-.074-.003-.147-.007-.22l.001-6.04c.534.336 1.033.728 1.49 1.169.114.109.225.22.334.337.218.233.58.24.808.017.228-.223.235-.593.017-.826-.123-.131-.247-.257-.375-.38-.766-.738-1.64-1.355-2.589-1.826l-.091-.037z" transform="translate(-21 -467) translate(21 467)"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>Playlist</span>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <defs>
+                                    <linearGradient id="v6mduhifwa" x1="50%" x2="50%" y1="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#FFD677"></stop>
+                                        <stop offset="100%" stop-color="#F7AA45"></stop>
+                                    </linearGradient>
+                                    <linearGradient id="dkfkk30hhb" x1="21.205%" x2="21.205%" y1="43.042%" y2="100.632%">
+                                        <stop offset="0%" stop-color="#FFF"></stop>
+                                        <stop offset="100%" stop-color="#FFF" stop-opacity=".9"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <g fill="none" fill-rule="evenodd">
+                                    <g>
+                                        <g>
+                                            <path fill="url(#v6mduhifwa)" d="M.516 7.143c.812-3.928 3.31-6.115 7.207-6.776 2.88-.489 5.762-.495 8.637.014 4.012.709 6.424 3.024 7.192 7.011.594 3.082.603 6.196-.009 9.274-.821 3.9-3.384 6.309-7.266 6.967-2.88.489-5.762.495-8.637-.014-4.012-.709-6.435-3.14-7.203-7.127-.624-3.102-.564-6.235.08-9.349z" transform="translate(-21 -569) translate(21 569)"></path>
+                                            <path fill="url(#dkfkk30hhb)" d="M12 3.75c-4.556 0-8.25 3.694-8.25 8.25s3.694 8.25 8.25 8.25 8.25-3.694 8.25-8.25S16.556 3.75 12 3.75zm3.805 12.388c-.13.13-.301.195-.472.195-.17 0-.341-.065-.47-.195l-3.334-3.333c-.126-.125-.196-.294-.196-.472V8c0-.369.299-.667.667-.667.368 0 .667.298.667.667v4.057l3.138 3.138c.26.261.26.682 0 .943z" transform="translate(-21 -569) translate(21 569)"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>Gần đây</span>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <span>Tháng 1</span>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <span>Nhạc Quốc Tế</span>
+                        </a>
+                    </li>
+                    <li class="app_sidebar-item">
+                        <a href="" class="app_sidebar-item-link">
+                            <span>Sky Ơi</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-create-playlist">
+                <i class="bi bi-plus-lg"></i>
+                <span>Tạo Playlist mới</span>
+            </div>
+        </div>
+
+
+        <!-- Header trên đầu trang ------------------------------------------------------------------>
+        <header class="header grid">
+            <div class="header__search">
+                <div class="header__search-left">
+                    <i class="header__search-left-icon bi bi-arrow-left"></i>
+                </div>
+                <div class="header__search-right">
+                    <i class="header__search-right-icon bi bi-arrow-right"></i>
+                </div>
+                <div class="header__search-input">
+                    <div class="header__search-input-btn">
+                        <i class="header__search-icon bi bi-search "></i>
+                    </div>
+                    <input type="text" placeholder="Nhập tên bài hát, nghệ sĩ, MV..." class="header__search-input-search">
+                    <div class="header__search-input-history">
+                        <ul class="input-history-list">
+                            <li class="input-history-item">
+                                <i class="bi bi-search "></i>
+                                <a href="" class="input-history-link">Nắng gió sài gòn</a>
+                            </li>
+                            <li class="input-history-item">
+                                <i class="bi bi-search "></i>
+                                <a href="" class="input-history-link">Như ngày hôm qua</a>
+                            </li>
+                            <li class="input-history-item">
+                                <i class="bi bi-search "></i>
+                                <a href="" class="input-history-link">Phía sau một cô gái</a>
+                            </li>
+                            <li class="input-history-item">
+                                <i class="bi bi-search "></i>
+                                <a href="" class="input-history-link">Sơn tùng</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header__setting">
+                <div class="header__setting-theme-btn">
+                    <svg width="20" height="20" class="header__setting-icon" viewBox="0 0 20 20"><defs><linearGradient id="j32lhg93hd" x1="62.206%" x2="18.689%" y1="70.45%" y2="39.245%"><stop offset="0%" stop-color="#F81212"></stop><stop offset="100%" stop-color="red"></stop></linearGradient><linearGradient id="hjoavsus6g" x1="50%" x2="11.419%" y1="23.598%" y2="71.417%"><stop offset="0%" stop-color="#00F"></stop><stop offset="100%" stop-color="#0031FF"></stop></linearGradient><linearGradient id="la1y5u3dvi" x1="65.655%" x2="25.873%" y1="18.825%" y2="56.944%"><stop offset="0%" stop-color="#FFA600"></stop><stop offset="100%" stop-color="orange"></stop></linearGradient><linearGradient id="2dsmrlvdik" x1="24.964%" x2="63.407%" y1="8.849%" y2="55.625%"><stop offset="0%" stop-color="#13EFEC"></stop><stop offset="100%" stop-color="#00E8DF"></stop></linearGradient><filter id="4a7imk8mze" width="230%" height="230%" x="-65%" y="-65%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceGraphic" stdDeviation="3.9"></feGaussianBlur></filter><filter id="301mo6jeah" width="312.7%" height="312.7%" x="-106.4%" y="-106.4%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceGraphic" stdDeviation="3.9"></feGaussianBlur></filter><filter id="b2zvzgq7fj" width="295%" height="295%" x="-97.5%" y="-97.5%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceGraphic" stdDeviation="3.9"></feGaussianBlur></filter><filter id="a1wq161tvl" width="256%" height="256%" x="-78%" y="-78%" filterUnits="objectBoundingBox"><feGaussianBlur in="SourceGraphic" stdDeviation="3.9"></feGaussianBlur></filter><path id="qtpqrj1oda" d="M3.333 14.167V5.833l-1.666.834L0 3.333 3.333 0h3.334c.04 1.57.548 2.4 1.524 2.492l.142.008C9.403 2.478 9.958 1.645 10 0h3.333l3.334 3.333L15 6.667l-1.667-.834v8.334h-10z"></path><path id="jggzvnjgfc" d="M0 0H20V20H0z"></path><path id="2eiwxjmc7m" d="M3.333 14.167V5.833l-1.666.834L0 3.333 3.333 0h3.334c.04 1.57.548 2.4 1.524 2.492l.142.008C9.403 2.478 9.958 1.645 10 0h3.333l3.334 3.333L15 6.667l-1.667-.834v8.334h-10z"></path></defs><g fill="none" fill-rule="evenodd" transform="translate(2 3)"><mask id="tinejqaasb" fill="#fff"><use xlink:href="#qtpqrj1oda"></use></mask><use fill="#FFF" fill-opacity="0" xlink:href="#qtpqrj1oda"></use><g mask="url(#tinejqaasb)"><g transform="translate(-2 -3)"><mask id="uf3ckvfvpf" fill="#fff"><use xlink:href="#jggzvnjgfc"></use></mask><use fill="#D8D8D8" xlink:href="#jggzvnjgfc"></use><circle cx="8.9" cy="6.8" r="9" fill="url(#j32lhg93hd)" filter="url(#4a7imk8mze)" mask="url(#uf3ckvfvpf)"></circle><circle cx="9.3" cy="13.7" r="5.5" fill="url(#hjoavsus6g)" filter="url(#301mo6jeah)" mask="url(#uf3ckvfvpf)"></circle><circle cx="15.9" cy="6.9" r="6" fill="url(#la1y5u3dvi)" filter="url(#b2zvzgq7fj)" mask="url(#uf3ckvfvpf)"></circle><circle cx="16.4" cy="17.7" r="7.5" fill="url(#2dsmrlvdik)" filter="url(#a1wq161tvl)" mask="url(#uf3ckvfvpf)"></circle></g></g><use fill="#FFF" fill-opacity="0.05" xlink:href="#2eiwxjmc7m"></use></g></svg>
+                </div>
+                <div class="header__setting-upload-btn">
+                    <i class="bi bi-upload header__setting-icon header__setting-icon--white"></i>
+                </div>
+                <div class="header__setting-setting-btn">
+                    <i class="bi bi-gear header__setting-icon header__setting-icon--white"></i>
+                    <div class="header__setting-menu">
+                        <div class="header__setting-nav">
+                            <div class="setting-item">
+                                <i class="bi bi-shield-lock setting__item-icon"></i>
+                                <span>Danh sách chặn</span>
+                            </div>
+                            <div class="setting-item">
+                                <i class="bi bi-badge-hd setting__item-icon"></i>
+                                <span>Chất lượng nhạc</span>
+                                <i class="bi bi-chevron-right setting__item-icon"></i>
+                            </div>
+                            <div class="setting-item">
+                                <i class="bi bi-play-circle setting__item-icon"></i>
+                                <span>Trình phát nhạc</span>
+                                <i class="bi bi-chevron-right setting__item-icon"></i>
+                            </div>
+                        </div>
+                        <div class="header__setting-subnav">
+                            <div class="setting-item">
+                                <i class="bi bi-exclamation-circle setting__item-icon"></i>
+                                <span>Giới thiệu</span>
+                            </div>
+                            <div class="setting-item">
+                                <i class="bi bi-flag setting__item-icon"></i>
+                                <span>Góp ý</span>
+                            </div>
+                            <div class="setting-item">
+                                <i class="bi bi-telephone setting__item-icon"></i>
+                                <span>Liên hệ</span>
+                            </div>
+                            <div class="setting-item">
+                                <i class="bi bi-badge-ad setting__item-icon"></i>
+                                <span>Quảng cáo</span>
+                            </div>
+                            <div class="setting-item">
+                                <i class="bi bi-file-text setting__item-icon"></i>
+                                <span>Thỏa thuận sử dụng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__setting-accout-btn">
+                    <img src="/assets/image/user/user2.jpg" alt="">
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Nội dung chính ------------------------------------------------------------------>
+        <div class="app-page">
+
+
+            <!-- Trang cá nhân ------------------------------------------------------------------>
+            <div class="HomePage Page personal Active">
+                
+                <!-- Phần user bên dưới header ------------------------------------------------------------------>
+                <div class="header__user">
+                    <div class="header__user-avatar">
+                        <img src="/assets/image/user/user2.jpg" alt="">
+                    </div>
+                    <div class="header__user-action">
+                        <div class="header__user-vip">MUA VIP NGAY</div>
+                        <div class="header__user-codevip btn-radius">NHẬP CODE VIP</div>
+                        <div class="header__user-logout">
+                            <i class="header__user-logout-three-dots bi bi-three-dots"></i>
+                            <div class="user-logout">
+                            <i class="header__user-logout-icon bi bi-box-arrow-right"></i>
+                            <span>Đăng xuất</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="header__user-name">Nghiêm Hồng</h2>
+                </div>
+
+                <!-- Điều hướng chính ------------------------------------------------------------------>
+                <div class="navbar-content mb-30">
+                    <ul class="navbar-content__list ">
+                        <li class="navbar-content__item active"><a href="#" class="navbar-content__link bcd">TỔNG QUAN</a></li>
+                        <li class="navbar-content__item"><a href="#" class="navbar-content__link abc">BÀI HÁT</a></li>
+                        <li class="navbar-content__item"><a href="#" class="navbar-content__link">PLAYLIST</a></li>
+                        <li class="navbar-content__item"><a href="#" class="navbar-content__link">ALBUM</a></li>
+                        <li class="navbar-content__item"><a href="#" class="navbar-content__link">MV</a></li>
+                        <li class="navbar-content__item"><a href="#" class="navbar-content__link">NGHỆ SĨ</a></li>
+                        <li class="navbar-content__item"><a href="#" class="navbar-content__link">TẢI LÊN</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Nội dung dưới gồm : Bài hát , Playlist ,  Albums , MV , Nghệ sĩ------------------------------------------------------------------>
+                <div class="body_content">
+
+
+                    <!-- tab home ------------------------------------------------------------------>
+                    <div class="grid body_content__tab active">
+        
+                        <!-- home => music ------------------------------------------------------------------>
+                        <div class="home_container__music row">
+
+                            <!--  music header -------------------------------------------------------------------->
+                            <div class="home_container__music-header col l-12 mb-10">
+                                <div class="home_container__music-header-title">
+                                    BÀI HÁT
+                                    <i class="bi bi-chevron-right"></i>
+                                </div>
+                                <div class="home_container__music-header-actions">
+                                    <span class="music-header-action-upload btn-radius">
+                                        <i class="bi bi-upload"></i>
+                                        <span>TẢI LÊN</span>
+                                    </span>
+                                    <span class="music-header-action-playAll btn-radius">
+                                        <i class="bi bi-play-fill "></i>
+                                        <span>PHÁT TẤT CẢ</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!--  music content ----------------------------------------------------------------------->
+                            <div class="home_container__music-content row mb-25">
+
+                                <!-- Slide chạy tự động của music -->
+                                <div class="home_container__music-content-slide col l-3 " >
+                                    <div class="music-content-slide-show">
+                                        <div class="music-content-slide-item first">
+                                            <div style="background: url('/assets/image/slides/slide1.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item second">
+                                            <div style="background: url('/assets/image/slides/slide2.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item third">
+                                            <div style="background: url('/assets/image/slides/slide3.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide4.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide5.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide6.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide7.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide8.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide9.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide10.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide11.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide12.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide3.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                        <div class="music-content-slide-item fourth">
+                                            <div style="background: url('/assets/image/slides/slide14.jpg') no-repeat center center / cover;" class="music-content-slide-img"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Danh sách các bài hát -->
+                                <div class="home_container__music-content-listSong col l-9">
+                                    <div class="playList-container row">
+                                        <!-- Danh sách các bài hát được render tại đa -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+        
+                        <!-- home => playList ------------------------------------------------------------------>
+                        <div class="home_container__playList row ">
+
+
+                            <!-- playlist header ------------------------------------------------------------------>
+                            <div class="home_container-header mb-10 col l-12">
+                                <div class="home-header__title">
+                                    <span>PLAYLIST</span>
+                                    <i class="bi bi-chevron-right playList-header__title-icon"></i>
+                                </div>
+                                <div class="home-header__controls">
+                                    <i class="bi bi-chevron-left home-header__control-icon playList-btn-prev disabled"></i>
+                                    <i class="bi bi-chevron-right home-header__control-icon playList-btn-next"></i>
+                                </div>
+                            </div>
+
+                            <!-- playlist content ------------------------------------------------------------------>
+                            <div class="home_container__Item-content col l-12">
+
+                                <!-- Các items playlist ------------------------------------------------------------------>
+                                <div class="row slider-main no-wrap playlist-ct">
+                                    <div class="col l-2-4 playList-item playList-item-create">
+                                        <div class="create_playList">
+                                            <i class="bi bi-plus-lg create_playList-icon" ></i>
+                                            <span>Tạo Playlist mới</span>
+                                        </div>
+                                    </div>
+                                <!-- playlist  render ở đây-->
+                                    
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Home => Album ------------------------------------------------------------------>
+                        <div class="home_container__album row mt-50">
+
+                            <!-- Album header ------------------------------------------------------------------>
+                            <div class="home_container-header mb-10 col l-12">
+                                <div class="home-header__title">
+                                    <span>ALBUM</span>
+                                    <i class="bi bi-chevron-right playList-header__title-icon"></i>
+                                </div>
+                                <div class="home-header__controls">
+                                    <i class="bi bi-chevron-left home-header__control-icon album-btn-prev disabled"></i>
+                                    <i class="bi bi-chevron-right home-header__control-icon album-btn-next"></i>
+                                </div>
+                            </div>
+
+                            <!-- Album content ------------------------------------------------------------------>
+                            <div class="home_container__Item-content col l-12">
+
+                                <!-- Các items album ------------------------------------------------------------------>
+                                <div class="row slider-main no-wrap album-ct">
+                                    
+                                    <!-- Album item render ở đây ------------------------------------------------------------------>
+                                    
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Home => MV ------------------------------------------------------------------>
+                        <div class="home_container__mv mt-50 row">
+
+                            <!-- MV header ------------------------------------------------------------------>
+                            <div class="home_container-header mb-10 col l-12">
+                                <div class="home-header__title">
+                                    <span>MV</span>
+                                    <i class="bi bi-chevron-right playList-header__title-icon"></i>
+                                </div>
+                                <div class="home-header__controls">
+                                    <i class="bi bi-chevron-left home-header__control-icon mv-btn-prev disabled"></i>
+                                    <i class="bi bi-chevron-right home-header__control-icon mv-btn-next"></i>
+                                </div>
+                            </div>
+
+                            <!-- MV content ------------------------------------------------------------------>
+                            <div class="home_container__Item-content col l-12">
+
+                                <!-- Các items MV ------------------------------------------------------------------>
+                                <div class="row slider-main no-wrap mv-ct">
+                                <!-- Các items MV render ở đây------------------------------------------------------------------>  
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Home => nghệ sĩ ------------------------------------------------------------------>
+                        <div class="home_container__artist mt-50 row">
+
+                            <!-- Nghệ sĩ header ------------------------------------------------------------------>
+                            <div class="home_container-header mb-10 col l-12">
+                                <div class="home-header__title">
+                                    <span>NGHỆ SĨ</span>
+                                    <i class="bi bi-chevron-right playList-header__title-icon"></i>
+                                </div>
+                                <div class="home-header__controls">
+                                    <i class="bi bi-chevron-left home-header__control-icon artist-btn-prev disabled"></i>
+                                    <i class="bi bi-chevron-right home-header__control-icon artist-btn-next"></i>
+                                </div>
+                            </div>
+
+                            <!-- Nghệ sĩ content ------------------------------------------------------------------>
+                            <div class="home_container__Item-content col l-12">
+
+                                <!-- Các items Nghễ sĩ ------------------------------------------------------------------>
+                                <div class="row slider-main no-wrap artists-ct">
+                                     <!-- Artist render ở đây -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- tab bai hat -------------------------------------------------------------------->
+                    <div class="body_content__tab">
+                        
+                        <!-- tab bài hát content  -------------------------------------------------------------------->
+                        <div class="home_container__music row">
+                            <div class="home_container__music-header col l-12 mb-10">
+                                <div class="home_container__music-header-title">
+                                    BÀI HÁT
+                                </div>
+                                <div class="home_container__music-header-actions">
+                                    <span class="music-header-action-upload btn-radius">
+                                        <i class="bi bi-upload"></i>
+                                        <span>TẢI LÊN</span>
+                                    </span>
+                                    <span class="music-header-action-playAll btn-radius">
+                                        <i class="bi bi-play-fill "></i>
+                                        <span>PHÁT TẤT CẢ</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="home_container__music-info col l-12">
+                                <span class="home_container__music--title l-6">BÀI HÁT</span>
+                                <span class="home_container__music--time l-6">THỜI GIAN</span>
+                            </div>
+                            <div class="home_container__music-content-listSong col l-12">
+                                <div class="playList-container row">
+                                    <div class="playList-container__item col l-12 tabmusic-item active">    
+                                        <div class="playList-container__item-check">
+                                            <label for="check-song-1" class="label-song">
+                                                <input type="checkbox" id="check-song-1" class="input-check-song">
+                                                <i class="bi bi-check2 checksong-icon"></i>
+                                            </label>
+                                            <i class="bi bi-music-note-beamed mr-10 music-note-icon"></i>
+                                        </div>
+                                        <div class="playList-container__img mr-16" style="background: url('/assets/image/music/listSong1/song1.jpg') no-repeat center center / cover;">
+                                            <i class="bi bi-play-fill"></i>
+                                        </div>
+                                        <div class="playList-container__song">
+                                            <div class="playList-container__song-name">
+                                                <span class="song-name">Cứ Chill Thôi</span> 
+                                                <span class="song-author">
+                                                    <a href="#">Chillies</a>
+                                                    ,&nbsp
+                                                    <a href="#">Suni Hạ Linh</a>
+                                                    ,&nbsp
+                                                    <a href="#">Rhymastic</a>
+                                                </span>   
+                                            </div>
+                                            <div class="song-time">04:30</div>
+                                            <div class="playList-container__song-options">
+                                                <div class="song-options-mic playList-song-btn">
+                                                    <i class="song-options-mic__icon bi bi-mic-fill"></i>
+                                                </div>
+                                                <div class="song-options-tym playList-song-btn">
+                                                    <i class="song-options-tym__icon  bi bi-heart"></i>
+                                                    <i class="song-options-tym__icon-fill  bi bi-heart-fill"></i>
+                                                </div>
+                                                <div class="song-options-three-dot playList-song-btn">
+                                                    <i class="song-options-three-dot__icon bi bi-three-dots"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>               
+                                    <div class="playList-container__item col l-12 tabmusic-item">
+                                        <div class="playList-container__item-check">
+                                            <label for="check-song-2" class="label-song">
+                                                <input type="checkbox" id="check-song-2" class="input-check-song">
+                                                <i class="bi bi-check2 checksong-icon"></i>
+                                            </label>
+                                            <i class="bi bi-music-note-beamed mr-10 music-note-icon"></i>
+                                        </div>
+                                        <div class="playList-container__img mr-16" style="background: url('/assets/image/music/listSong1/song2.jpg') no-repeat center center / cover;">
+                                            <i class="bi bi-play-fill"></i>
+                                        </div>
+                                        <div class="playList-container__song">
+                                            <div class="playList-container__song-name">
+                                                <span class="song-name">Crush</span> 
+                                                <span class="song-author">
+                                                    <a href="#">WN</a>
+                                                    ,&nbsp
+                                                    <a href="#">Vani</a>
+                                                    ,&nbsp
+                                                    <a href="#">An An</a>
+                                                </span>   
+                                            </div>
+                                            <div class="song-time">02:30</div>
+                                            <div class="playList-container__song-options">
+                                                <div class="song-options-mic playList-song-btn">
+                                                    <i class="song-options-mic__icon bi bi-mic-fill"></i>
+                                                </div>
+                                                <div class="song-options-tym playList-song-btn">
+                                                    <i class="song-options-tym__icon  bi bi-heart"></i>
+                                                    <i class="song-options-tym__icon-fill  bi bi-heart-fill"></i>
+                                                </div>
+                                                <div class="song-options-three-dot playList-song-btn">
+                                                    <i class="song-options-three-dot__icon bi bi-three-dots"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="playList-container__item col l-12 tabmusic-item">
+                                        <div class="playList-container__item-check">
+                                            <label for="check-song-3" class="label-song">
+                                                <input type="checkbox" id="check-song-3" class="input-check-song">
+                                                <i class="bi bi-check2 checksong-icon"></i>
+                                            </label>
+                                            <i class="bi bi-music-note-beamed mr-10 music-note-icon"></i>
+                                        </div>
+                                        <div class="playList-container__img mr-16" style="background: url('/assets/image/music/listSong1/song3.jpg') no-repeat center center / cover;">
+                                            <i class="bi bi-play-fill"></i>
+                                        </div>
+                                        <div class="playList-container__song">
+                                            <div class="playList-container__song-name">
+                                                <span class="song-name">Vô tình</span> 
+                                                <span class="song-author">
+                                                    <a href="#">Xesi</a>
+                                                    ,&nbsp
+                                                    <a href="#">Hoarox</a>
+                                                </span>   
+                                            </div>
+                                            <div class="song-time">03:50</div>
+                                            <div class="playList-container__song-options">
+                                                <div class="song-options-mic playList-song-btn">
+                                                    <i class="song-options-mic__icon bi bi-mic-fill"></i>
+                                                </div>
+                                                <div class="song-options-tym playList-song-btn">
+                                                    <i class="song-options-tym__icon  bi bi-heart"></i>
+                                                    <i class="song-options-tym__icon-fill  bi bi-heart-fill"></i>
+                                                </div>
+                                                <div class="song-options-three-dot playList-song-btn">
+                                                    <i class="song-options-three-dot__icon bi bi-three-dots"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="playList-container__item col l-12 tabmusic-item">
+                                        <div class="playList-container__item-check">
+                                            <label for="check-song-4" class="label-song">
+                                                <input type="checkbox" id="check-song-4" class="input-check-song">
+                                                <i class="bi bi-check2 checksong-icon"></i>
+                                            </label>
+                                            <i class="bi bi-music-note-beamed mr-10 music-note-icon"></i>
+                                        </div>
+                                        <div class="playList-container__img mr-16" style="background: url('/assets/image/music/listSong1/song12.jpg') no-repeat center center / cover;">
+                                            <i class="bi bi-play-fill"></i>
+                                        </div>
+                                        <div class="playList-container__song">
+                                            <div class="playList-container__song-name">
+                                                <span class="song-name">Lạc trôi</span> 
+                                                <span class="song-author">
+                                                    <a href="#">Sơn Tùng MTP</a>
+                                                </span>   
+                                            </div>
+                                            <div class="song-time">03:30</div>
+                                            <div class="playList-container__song-options">
+                                                <div class="song-options-mic playList-song-btn">
+                                                    <i class="song-options-mic__icon bi bi-mic-fill"></i>
+                                                </div>
+                                                <div class="song-options-tym playList-song-btn">
+                                                    <i class="song-options-tym__icon  bi bi-heart"></i>
+                                                    <i class="song-options-tym__icon-fill  bi bi-heart-fill"></i>
+                                                </div>
+                                                <div class="song-options-three-dot playList-song-btn">
+                                                    <i class="song-options-three-dot__icon bi bi-three-dots"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="playList-container__item col l-12 tabmusic-item">
+                                        <div class="playList-container__item-check">
+                                            <label for="check-song-5" class="label-song">
+                                                <input type="checkbox" id="check-song-5" class="input-check-song">
+                                                <i class="bi bi-check2 checksong-icon"></i>
+                                            </label>
+                                            <i class="bi bi-music-note-beamed mr-10 music-note-icon"></i>
+                                        </div>
+                                        <div class="playList-container__img mr-16" style="background: url('/assets/image/music/listSong1/song18.jpg') no-repeat center center / cover;">
+                                            <i class="bi bi-play-fill"></i>
+                                        </div>
+                                        <div class="playList-container__song">
+                                            <div class="playList-container__song-name">
+                                                <span class="song-name">Hãy trao cho anh</span> 
+                                                <span class="song-author">
+                                                    <a href="#">Sơn Tùng MTP</a>
+                                                    ,&nbsp
+                                                    <a href="#">Snoop Dogg</a>
+                                                </span>   
+                                            </div>
+                                            <div class="song-time">04:50</div>
+                                            <div class="playList-container__song-options">
+                                                <div class="song-options-mic playList-song-btn">
+                                                    <i class="song-options-mic__icon bi bi-mic-fill"></i>
+                                                </div>
+                                                <div class="song-options-tym playList-song-btn">
+                                                    <i class="song-options-tym__icon  bi bi-heart"></i>
+                                                    <i class="song-options-tym__icon-fill  bi bi-heart-fill"></i>
+                                                </div>
+                                                <div class="song-options-three-dot playList-song-btn">
+                                                    <i class="song-options-three-dot__icon bi bi-three-dots"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                    <!-- tab playlist -------------------------------------------------------------------->
+                    <div class="body_content__tab">
+                        <!-- Các items playist------------------------------------------------------------------>
+                        <div class="row slider-main tab-playist-ct">
+                            <div class="col l-2-4 playList-item playList-item-create mt-20" style="height: auto;">
+                                <div class="create_playList">
+                                    <i class="bi bi-plus-lg create_playList-icon" ></i>
+                                    <span>Tạo Playlist mới</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                    <!-- tab album -->
+                    <div class="body_content__tab">
+                        <div class="row slider-main tab-album-ct">
+                            
+                        </div>
+                    </div>
+
+
+                    <!-- tab mv -->
+                    <div class="body_content__tab">
+                        <div class="row slider-main tab-mv-ct">
+                            
+                        </div>
+                    </div>
+
+
+                    <!-- tab nghe si -->
+                    <div class="body_content__tab">
+                        <div class="row slider-main artist-ct">
+                    <!-- Artist render ở đây -->
+                        </div>
+                    </div>
+
+
+                    <!-- tab upload -->
+                    <div class="body_content__tab">
+                        <div class="home_container-header mb-10 col l-12">
+                            <div class="home-header__title">
+                                <span>DANH SÁCH TẢI LÊN</span>
+                            </div>
+                        </div>
+                        <div class="tab_upload-content">
+                            <div class="img-music-upload">
+                            </div>
+                            <div class="upload-body">
+                                Không có bài hát tải lên
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Khám phá -->
+            <div class="Page ">Khám phá</div>
+            <!-- Page #ZingChart -->
+            <div class="Page">#ZingChart</div>
+            <!-- Page Radio -->
+            <div class="Page">Radio</div>
+            <!-- Page Theo doi -->
+            <div class="Page">Theo doi</div>
+            </div>
+        
+    </div>
+
+
+     <!-- Thanh phát nhạc -------------------------------------------------------------------->
+     <div class="player-container" style="background-image: url('/assets/image/themeBgs/listTheme1/playerThemes/theme1.png');">
+        <div class="player-content row">
+            <div class="player-container-song">
+                <div class="player-media-left">
+                    <div class="thumb-img"></div>
+                </div>
+                <div class="player-media-content">
+                    <div class="player-media-content-namesong">
+                        <h4>Chúng ta của hiện tại</h4>
+                        <span>Sơn Tùng MTP</span>
+                    </div>
+                </div>
+                <div class="player-media-right">
+                    <div class="song-options-tym playList-song-btn">
+                        <i class="song-options-tym__icon  bi bi-heart"></i>
+                        <i class="song-options-tym__icon-fill  bi bi-heart-fill"></i>
+                    </div>
+                    <div class="song-options-three-dot playList-song-btn">
+                        <i class="song-options-three-dot__icon bi bi-three-dots"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="player-container-control ">
+                <div class="player-control-btn">
+                    <i class="bi bi-shuffle"></i>
+                    <i class="bi bi-skip-start-fill"></i>
+                    <i class="bi bi-play-fill icon-play"></i>
+                    <!--<i class="bi bi-pause icon-pause"></i>-->
+                    <i class="bi bi-skip-end-fill"></i>
+                    <i class="bi bi-arrow-repeat"></i>
+                </div>
+                <div class="player-control-time-song">
+                    <div class="range-time-song--fill"></div>
+                    <input type="range" class="range-time-song">
+                </div>
+            </div>
+            <div class="player-container-options flex">
+                <div class="player-option-icon flex">
+                    <div class="player-option-icon-video btn-50">
+                        <i class="bi bi-camera-video"></i>
+                    </div>
+                    <div class="player-option-icon-mic btn-50">
+                        <i class="bi bi-mic"></i>
+                    </div>
+                </div>
+
+                <div class="player-option-icon-value flex">
+                    <div class="player-option-icon-speaker btn-50">
+                        <i class="bi bi-volume-up btn-volume-up btn-volume"></i>
+                        <i class="bi bi-volume-mute btn-volume-mute btn-volume"></i>
+                    </div>
+                    <div class="player-option-adjust-volume">
+                        <div class="volume-fill"></div>
+                        <input type="range" class="range-value" value="50" step="1" min="0" max="100">
+                    </div>
+                </div>
+
+                <div class="player-list-icon">
+                    <i class="bi bi-music-note-list"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="/assets/JS/main.js"></script>
+    <script src="/assets/JS/handle event/menu_nav.js"></script>
+    <script src="/assets/JS/handle event/action_logout.js"></script>
+</body>
+</html>
