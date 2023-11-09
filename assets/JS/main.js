@@ -22,37 +22,49 @@ const iconVolumes = $$(".btn-volume");
 const sidebarItem = $$(".sidebar-tab-left");
 const Pages = $$(".Page");
 
+const cdThump = $(".thumb-img");
+const songName = $(".player-media-content-namesong h4");
+const singer = $(".player-media-content-namesong span");
+const audio = $("#audio");
+const player = $(".player");
 const app = {
+  currentIndex: 0,
+  isPlaying: false,
   songs: [
     {
       image: "../assets/image/music/listSong1/song1.jpg",
       song_name: "Cứ Chill Thôi",
       song_author: ["Chillies", "Suni Hạ Linh", "Rhymastic"],
       time_song: "04:30",
+      src: "../assets/music/listSong1/song1.mp3",
     },
     {
       image: "../assets/image/music/listSong1/song2.jpg",
       song_name: "Crush",
       song_author: ["WN", "Vani", "An An"],
       time_song: "02:30",
+      src: "../assets/music/listSong1/song2.mp3",
     },
     {
       image: "../assets/image/music/listSong1/song3.jpg",
       song_name: "Vô tình",
       song_author: ["Xesi", "Hoarox"],
       time_song: "03:50",
+      src: "../assets/music/listSong1/song3.mp3",
     },
     {
       image: "../assets/image/music/listSong1/song4.jpg",
       song_name: "Lạc trôi",
       song_author: ["Sơn Tùng MTP"],
       time_song: "03:30",
+      src: "../assets/music/listSong1/song4.mp3",
     },
     {
       image: "../assets/image/music/listSong1/song5.jpg",
       song_name: "Hãy trao cho anh",
       song_author: ["Sơn Tùng MTP", "Snoop Dogg"],
       time_song: "04:50",
+      src: "../assets/music/listSong1/song5.mp3",
     },
   ],
 
@@ -378,7 +390,7 @@ const app = {
       care: 516,
     },
   ],
-  //Tổng quan
+  //Xử lý render nội dung
   renderSong: function () {
     const songHtml = this.songs.map((song) => {
       return `<div class="playList-container__item col l-12 abc">
@@ -397,7 +409,8 @@ const app = {
                 </span>   
             </div>
             <div class="song-time">${song.time_song}</div>
-            <div class="playList-container__song-options">
+  
+  src : ""          <div class="playList-container__song-options">
                 <div class="song-options-mic playList-song-btn" >
                     <i class="song-options-mic__icon bi bi-mic-fill"></i>
                 </div>
@@ -650,6 +663,7 @@ const app = {
       setTimeout(slideShow, 2000);
     }
     slideShow();
+
     // xu ly background khi cuon chuot
     const app = $(".app");
     app.onscroll = function () {
@@ -674,18 +688,10 @@ const app = {
       volume_fill.style.width = volume.value + "% ";
     };
 
-    //Handle thanh time bai hat
+    // Xử lý khi kick vào các icon
 
-    let timeVolume = document.querySelector(".range-time-song");
-    let timeVolue_fill = document.querySelector(".range-time-song--fill");
-    timeVolume.oninput = function () {
-      timeVolue_fill.style.width = timeVolume.value + "% ";
-    };
-
-    // handle kick options playListItem
     // icon mic
     micIcons.forEach((micIcon) => {
-      console.log(micIcon);
       micIcon.onclick = () => {
         console.log(1);
         if (micIcon.style.color === "var(--color-option-icon-kick)") {
@@ -722,7 +728,7 @@ const app = {
       };
     });
 
-    // handle next item playList , Album, MV, ....
+    // Xử lý khi ấn prev , next playList , Album, MV, ....
 
     // Playlist
     nextPlaylistBtn.onclick = function () {
@@ -795,7 +801,7 @@ const app = {
       );
     };
 
-    // Ham chuyen tab tren trang home
+    // Xử lý nav tại trang hôm
     chooseItemList.forEach((item, index) => {
       item.addEventListener("click", function () {
         $(".navbar-content__item.active").classList.remove("active");
@@ -806,7 +812,6 @@ const app = {
     });
 
     //Ham chuyen tab tren sidebar ben trai
-
     sidebarItem.forEach((item, index) => {
       item.addEventListener("click", function () {
         $(".sidebar-tab-left.active").classList.remove("active");
@@ -823,7 +828,7 @@ const app = {
         : sidebar_sub.classList.remove("shawdow");
     };
 
-    // Handle next slides
+    // Handle next slides music
     let nextWidth = 0;
     let dem = 0; //Đếm xem đã ấn nút next mấy lần
     const widthMainSlide = mainSlide.offsetWidth;
@@ -873,11 +878,77 @@ const app = {
         ListContainer.scrollLeft = nextWidth;
       }
     }
+
+    //Xử lý quay cdthump . Tạo ra đối tượng animate
+
+    const cdThumpAnimate = cdThump.animate([{ transform: "rotate(360deg)" }], {
+      duration: 10000, // 10 giây
+      iterations: Infinity,
+    });
+    //console.log(cdThumpAnimate);
+    cdThumpAnimate.pause();
+
+    // Xử lý phát nhạc
+    player.onclick = function () {
+      if (_this.isPlaying) {
+        audio.pause();
+        cdThumpAnimate.pause();
+      } else {
+        audio.play();
+        cdThumpAnimate.play();
+      }
+    };
+
+    // Khi bài hát được play
+    audio.onplay = function () {
+      player.classList.add("playing");
+      _this.isPlaying = true;
+    };
+
+    // Khi bài hát bị pause
+    audio.onpause = function () {
+      _this.isPlaying = false;
+      player.classList.remove("playing");
+    };
+
+    //Handle thanh time bai hat
+
+    let timeVolume = $(".range-time-song");
+    let timeVolue_fill = $(".range-time-song--fill");
+    timeVolume.oninput = function (e) {
+      timeVolue_fill.style.width = timeVolume.value + "% ";
+      audio.currentTime = audio.duration * (e.target.value / 100); // Tua bài hát bằng cách sử dụng method curentTime của audio
+    };
+
+    // Tiến độ khi bài hát thay đổi
+    audio.ontimeupdate = function () {
+      const rangeTime = $(".range-time-song--fill");
+      rangeTime.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+      $(".range-time-song").value = (audio.currentTime / audio.duration) * 100;
+    };
+  },
+
+  getCurrentSong: function () {
+    Object.defineProperty(this, "currentSong", {
+      get: function () {
+        return this.songs[this.currentIndex];
+      },
+    });
+  },
+
+  loadCurrentSong: function () {
+    cdThump.style.background = `url(${this.currentSong.image}) no-repeat center
+    center / contain`;
+    songName.textContent = this.currentSong.song_name;
+    singer.textContent = this.currentSong.song_author[0];
+    audio.src = this.currentSong.src;
   },
 
   start: function () {
+    this.getCurrentSong();
     this.render();
     this.handleEvent();
+    this.loadCurrentSong();
   },
 };
 
