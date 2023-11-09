@@ -401,7 +401,7 @@ const app = {
   //Xử lý render nội dung
   renderSong: function () {
     const songHtml = this.songs.map((song, index) => {
-      return `<div class="playList-container__item col l-12 abc data-index ='${index}' ">
+      return `<div class="playList-container__item col l-12 abc  " index ='${index}'>
         <div class="playList-container__img mr-16" style="background: url(${
           song.image
         }) no-repeat center center / cover;">
@@ -435,9 +435,7 @@ const app = {
     });
 
     songContainer.innerHTML = songHtml.join("");
-    songContainer.onclick = function (e) {
-      console.log(e.target);
-    };
+    songContainer.firstElementChild.classList.add("active");
   },
   renderPlaylist: function () {
     const playlistHtml = this.playlists.map((playlist) => {
@@ -974,6 +972,22 @@ const app = {
         audio.play();
       } else {
         nextSong.click(); // Tương tự việc ấn click vào nút click
+      }
+    };
+
+    // Xử lý khi click vào song
+    songContainer.onclick = function (e) {
+      // closets sẽ trả ra 1 là chính element đó 2 là cha gần nhất của nó , Nếu không thấy nó sẽ trẻ vầ null
+      // Ở đây khi click vào các element là con của .playList-container__item thì sẽ chả ra thằng cha có class .playList-container__item
+      const songNode = e.target.closest(
+        ".playList-container__item:not(.active)"
+      );
+      if (songNode || e.target.closest(".song-options-three-dot__icon")) {
+        if (songNode) {
+          _this.currentIndex = Number(songNode.getAttribute("index"));
+          _this.loadCurrentSong();
+          audio.play();
+        }
       }
     };
   },
