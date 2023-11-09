@@ -27,6 +27,10 @@ const songName = $(".player-media-content-namesong h4");
 const singer = $(".player-media-content-namesong span");
 const audio = $("#audio");
 const player = $(".player");
+
+const nextSong = $(".next-song");
+const prevSong = $(".prev-song");
+const randomSong = $(".random-song");
 const app = {
   currentIndex: 0,
   isPlaying: false,
@@ -926,6 +930,19 @@ const app = {
       rangeTime.style.width = (audio.currentTime / audio.duration) * 100 + "%";
       $(".range-time-song").value = (audio.currentTime / audio.duration) * 100;
     };
+
+    //Xử lý next , prev bài hát
+    nextSong.onclick = function () {
+      _this.nextSong();
+      audio.play();
+    };
+
+    prevSong.onclick = function () {
+      _this.prevSong();
+      audio.play();
+    };
+
+    // Xử lý Random bài hát
   },
 
   getCurrentSong: function () {
@@ -942,6 +959,26 @@ const app = {
     songName.textContent = this.currentSong.song_name;
     singer.textContent = this.currentSong.song_author[0];
     audio.src = this.currentSong.src;
+  },
+
+  nextSong: function () {
+    this.currentIndex++;
+    if (this.currentIndex > this.songs.length - 1) {
+      this.currentIndex = 0;
+    }
+    this.loadCurrentSong();
+  },
+
+  randomSong: function () {
+    const random = Math.floor(Math.random() * this.songs.length);
+  },
+
+  prevSong: function () {
+    this.currentIndex--;
+    if (this.currentIndex < 0) {
+      this.currentIndex = 0;
+    }
+    this.loadCurrentSong();
   },
 
   start: function () {
