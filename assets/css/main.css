@@ -341,6 +341,22 @@
   cursor: pointer;
 }
 
+.player-container-control .player {
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 5px;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.player-container-control .player i {
+  position: absolute;
+  left: 52%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+}
+
 .player-container-control .player.playing .icon-play {
   display: none;
 }
@@ -360,6 +376,14 @@
   color: var(--text-color);
   font-size: 2rem;
   flex: 2;
+}
+
+.random-song.isRandom {
+  color: var(--color-option-icon-kick);
+}
+
+.repeat-song.isRepeat {
+  color: var(--color-option-icon-kick);
 }
 
 /*Thanh thời gian to dưới cùng */

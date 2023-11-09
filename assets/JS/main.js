@@ -31,9 +31,13 @@ const player = $(".player");
 const nextSong = $(".next-song");
 const prevSong = $(".prev-song");
 const randomSong = $(".random-song");
+const repeatSong = $(".repeat-song");
+const songContainer = $(".playList-container");
 const app = {
   currentIndex: 0,
   isPlaying: false,
+  isRepeat: false,
+  isRandom: false,
   songs: [
     {
       image: "../assets/image/music/listSong1/song1.jpg",
@@ -57,11 +61,11 @@ const app = {
       src: "../assets/music/listSong1/song3.mp3",
     },
     {
-      image: "../assets/image/music/listSong1/song4.jpg",
+      image: "../assets/image/music/listSong1/song12.jpg",
       song_name: "Lạc trôi",
       song_author: ["Sơn Tùng MTP"],
       time_song: "03:30",
-      src: "../assets/music/listSong1/song4.mp3",
+      src: "../assets/music/listSong1/song7.mp3",
     },
     {
       image: "../assets/image/music/listSong1/song5.jpg",
@@ -396,8 +400,8 @@ const app = {
   ],
   //Xử lý render nội dung
   renderSong: function () {
-    const songHtml = this.songs.map((song) => {
-      return `<div class="playList-container__item col l-12 abc">
+    const songHtml = this.songs.map((song, index) => {
+      return `<div class="playList-container__item col l-12 abc data-index ='${index}' ">
         <div class="playList-container__img mr-16" style="background: url(${
           song.image
         }) no-repeat center center / cover;">
@@ -414,7 +418,7 @@ const app = {
             </div>
             <div class="song-time">${song.time_song}</div>
   
-  src : ""          <div class="playList-container__song-options">
+          <div class="playList-container__song-options">
                 <div class="song-options-mic playList-song-btn" >
                     <i class="song-options-mic__icon bi bi-mic-fill"></i>
                 </div>
@@ -429,9 +433,11 @@ const app = {
         </div>
     </div>`;
     });
-    const songContainer = $(".playList-container");
 
     songContainer.innerHTML = songHtml.join("");
+    songContainer.onclick = function (e) {
+      console.log(e.target);
+    };
   },
   renderPlaylist: function () {
     const playlistHtml = this.playlists.map((playlist) => {
@@ -697,7 +703,6 @@ const app = {
     // icon mic
     micIcons.forEach((micIcon) => {
       micIcon.onclick = () => {
-        console.log(1);
         if (micIcon.style.color === "var(--color-option-icon-kick)") {
           micIcon.style.color = "var(--text-color)";
         } else {
@@ -933,16 +938,44 @@ const app = {
 
     //Xử lý next , prev bài hát
     nextSong.onclick = function () {
-      _this.nextSong();
+      if (_this.isRandom) {
+        _this.randomSong();
+      } else {
+        _this.nextSong();
+      }
+
       audio.play();
     };
 
     prevSong.onclick = function () {
-      _this.prevSong();
+      if (_this.isRandom) {
+        _this.randomSong();
+      } else {
+        _this.prevSong();
+      }
       audio.play();
     };
 
     // Xử lý Random bài hát
+    randomSong.onclick = function () {
+      _this.isRandom = !_this.isRandom;
+      randomSong.classList.toggle("isRandom");
+    };
+    // Xử lý khi kick repeat bài hát
+    repeatSong.onclick = function () {
+      _this.isRepeat = !_this.isRepeat;
+      repeatSong.classList.toggle("isRepeat");
+    };
+
+    // Xử lý next khi kết thúc bài hát
+    audio.onended = function () {
+      console.log("End");
+      if (_this.isRepeat) {
+        audio.play();
+      } else {
+        nextSong.click(); // Tương tự việc ấn click vào nút click
+      }
+    };
   },
 
   getCurrentSong: function () {
@@ -969,15 +1002,20 @@ const app = {
     this.loadCurrentSong();
   },
 
-  randomSong: function () {
-    const random = Math.floor(Math.random() * this.songs.length);
-  },
-
   prevSong: function () {
     this.currentIndex--;
     if (this.currentIndex < 0) {
       this.currentIndex = 0;
     }
+    this.loadCurrentSong();
+  },
+
+  randomSong: function () {
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * this.songs.length);
+    } while (newIndex === this.currentIndex); // Nếu giá trị random mới bằng index bài hát hiện tại thì phải tiếp tục random
+    this.currentIndex = newIndex;
     this.loadCurrentSong();
   },
 
