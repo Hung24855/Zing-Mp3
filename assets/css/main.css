@@ -1127,6 +1127,10 @@ span.live {
   background-color: var(--bg-content);
 }
 
+.playList-container__item.active.isplaying {
+  background-color: var(--bg-content);
+}
+
 .playList-container__item:hover {
   background-color: var(--bg-content);
 }
@@ -1160,6 +1164,25 @@ span.live {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  display: none;
+}
+
+.playList-container__item .songPlay-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  z-index: 100;
+  display: none;
+}
+
+.playList-container__item.active.isplaying .songPlay-animation {
+  display: block;
+}
+
+.playList-container__item.active.isplaying .icon-play-song {
   display: none;
 }
 

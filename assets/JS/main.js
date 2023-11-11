@@ -12,7 +12,6 @@ const nextArtistBtn = $(".artist-btn-next");
 const prevArtistBtn = $(".artist-btn-prev");
 const sliderMains = $$(".slider-main");
 const mainSlide = $(".home_container__Item-content");
-
 const navbarItems = $$(".navbar-content__item");
 const navbarContent = $(".navbar-content__list");
 const chooseItemList = $$(".navbar-content__item");
@@ -33,6 +32,7 @@ const prevSong = $(".prev-song");
 const randomSong = $(".random-song");
 const repeatSong = $(".repeat-song");
 const songContainer = $(".playList-container");
+
 const app = {
   currentIndex: 0,
   isPlaying: false,
@@ -401,37 +401,36 @@ const app = {
   //Xử lý render nội dung
   renderSong: function () {
     const songHtml = this.songs.map((song, index) => {
-      return `<div class="playList-container__item col l-12 abc  " index ='${index}'>
-        <div class="playList-container__img mr-16" style="background: url(${
-          song.image
-        }) no-repeat center center / cover;">
-            <i class="bi bi-play-fill"></i>
+      return `<div class="playList-container__item col l-12 " index ='${index}'>
+                <div class="playList-container__img mr-16" style="background: url(${
+                  song.image
+                }) no-repeat center center / cover;">
+                    <i class="bi bi-play-fill icon-play-song"></i>
+                    <div class="songPlay-animation" style = "background : url('../assets/image/Animation_Play_Nhac/icon-playing.gif') no-repeat center center / cover;">
+                </div>
+      </div>
+      <div class="playList-container__song">
+        <div class="playList-container__song-name">
+          <span class="song-name">${song.song_name}</span> 
+          <span class="song-author">${song.song_author.map((author) => {
+            return `<a href="#">${author}</a>`;
+          })}</span>   
         </div>
-        <div class="playList-container__song">
-            <div class="playList-container__song-name">
-                <span class="song-name">${song.song_name}</span> 
-                <span class="song-author">
-                    ${song.song_author.map((author) => {
-                      return `<a href="#">${author}</a>`;
-                    })}
-                </span>   
-            </div>
-            <div class="song-time">${song.time_song}</div>
-  
-          <div class="playList-container__song-options">
-                <div class="song-options-mic playList-song-btn" >
-                    <i class="song-options-mic__icon bi bi-mic-fill"></i>
-                </div>
-                <div class="song-options-tym playList-song-btn">
-                    <i class="song-options-tym__icon  bi bi-heart"></i>
-                    <i class="song-options-tym__icon-fill  bi bi-heart-fill"></i>
-                </div>
-                <div class="song-options-three-dot playList-song-btn">
-                    <i class="song-options-three-dot__icon bi bi-three-dots"></i>
-                </div>
-            </div>
+        <div class="song-time">${song.time_song}</div>
+        <div class="playList-container__song-options">
+          <div class="song-options-mic playList-song-btn" >
+            <i class="song-options-mic__icon bi bi-mic-fill"></i>
+          </div>
+          <div class="song-options-tym playList-song-btn">
+            <i class="song-options-tym__icon  bi bi-heart"></i>
+            <i class="song-options-tym__icon-fill  bi bi-heart-fill"></i>
+          </div>
+          <div class="song-options-three-dot playList-song-btn">
+            <i class="song-options-three-dot__icon bi bi-three-dots"></i>
+          </div>
         </div>
-    </div>`;
+    </div>
+  </div>`;
     });
 
     songContainer.innerHTML = songHtml.join("");
@@ -899,9 +898,12 @@ const app = {
     player.onclick = function () {
       if (_this.isPlaying) {
         audio.pause();
+        $(".playList-container__item.active").classList.remove("isplaying");
         cdThumpAnimate.pause();
       } else {
         audio.play();
+        $(".playList-container__item.active").classList.add("isplaying");
+
         cdThumpAnimate.play();
       }
     };
@@ -983,9 +985,17 @@ const app = {
         ".playList-container__item:not(.active)"
       );
       if (songNode || e.target.closest(".song-options-three-dot__icon")) {
-        if (songNode) {
+        if (
+          songNode &&
+          !e.target.closest(".song-options-three-dot__icon") &&
+          !e.target.closest(".song-options-mic__icon") &&
+          !e.target.closest(".song-options-tym__icon-fill") &&
+          !e.target.closest(".song-options-tym__icon")
+        ) {
           _this.currentIndex = Number(songNode.getAttribute("index"));
           _this.loadCurrentSong();
+          $(".playList-container__item.active").classList.remove("active");
+          songNode.classList.add("active", "isplaying");
           audio.play();
         }
       }
