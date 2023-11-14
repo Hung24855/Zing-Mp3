@@ -25,6 +25,8 @@ const cdThump = $(".thumb-img");
 const songName = $(".player-media-content-namesong h4");
 const singer = $(".player-media-content-namesong span");
 const audio = $("#audio");
+const timeStart = $(".time-song-start");
+const timeEnd = $(".time-song-end");
 const player = $(".player");
 
 const nextSong = $(".next-song");
@@ -32,12 +34,14 @@ const prevSong = $(".prev-song");
 const randomSong = $(".random-song");
 const repeatSong = $(".repeat-song");
 const songContainer = $(".playList-container");
+const volumeIcon = $(".player-option-icon-speaker");
 
 const app = {
   currentIndex: 0,
   isPlaying: false,
   isRepeat: false,
   isRandom: false,
+  isVolume: false,
   songs: [
     {
       image: "../assets/image/music/listSong1/song1.jpg",
@@ -61,7 +65,7 @@ const app = {
       src: "../assets/music/listSong1/song3.mp3",
     },
     {
-      image: "../assets/image/music/listSong1/song12.jpg",
+      image: "../assets/image/music/listSong1/song4.jpg",
       song_name: "Lạc trôi",
       song_author: ["Sơn Tùng MTP"],
       time_song: "03:30",
@@ -688,13 +692,6 @@ const app = {
       }
     };
 
-    //Điều chỉnh âm lượng
-    let volume = document.querySelector(".range-value");
-    let volume_fill = document.querySelector(".volume-fill");
-    volume.oninput = function () {
-      volume_fill.style.width = volume.value + "% ";
-    };
-
     // Xử lý khi kick vào các icon
 
     // icon mic
@@ -903,7 +900,6 @@ const app = {
       } else {
         audio.play();
         $(".playList-container__item.active").classList.add("isplaying");
-
         cdThumpAnimate.play();
       }
     };
@@ -920,7 +916,7 @@ const app = {
       player.classList.remove("playing");
     };
 
-    //Handle thanh time bai hat
+    //Handle thanh thời gian bai hat
 
     let timeVolume = $(".range-time-song");
     let timeVolue_fill = $(".range-time-song--fill");
@@ -969,7 +965,6 @@ const app = {
 
     // Xử lý next khi kết thúc bài hát
     audio.onended = function () {
-      console.log("End");
       if (_this.isRepeat) {
         audio.play();
       } else {
@@ -981,24 +976,43 @@ const app = {
     songContainer.onclick = function (e) {
       // closets sẽ trả ra 1 là chính element đó 2 là cha gần nhất của nó , Nếu không thấy nó sẽ trẻ vầ null
       // Ở đây khi click vào các element là con của .playList-container__item thì sẽ chả ra thằng cha có class .playList-container__item
-      const songNode = e.target.closest(
-        ".playList-container__item:not(.active)"
-      );
-      if (songNode || e.target.closest(".song-options-three-dot__icon")) {
-        if (
-          songNode &&
-          !e.target.closest(".song-options-three-dot__icon") &&
-          !e.target.closest(".song-options-mic__icon") &&
-          !e.target.closest(".song-options-tym__icon-fill") &&
-          !e.target.closest(".song-options-tym__icon")
-        ) {
-          _this.currentIndex = Number(songNode.getAttribute("index"));
-          _this.loadCurrentSong();
-          $(".playList-container__item.active").classList.remove("active");
-          songNode.classList.add("active", "isplaying");
-          audio.play();
-        }
+      const songNode = e.target.closest(".playList-container__item");
+      const isThreeDotIcon = e.target.closest(".song-options-three-dot__icon");
+      const isMicIcon = e.target.closest(".song-options-mic__icon");
+      const isTymIconFill = e.target.closest(".song-options-tym__icon-fill");
+      const isTymIcon = e.target.closest(".song-options-tym__icon");
+
+      if (
+        songNode &&
+        !isThreeDotIcon &&
+        !isMicIcon &&
+        !isTymIconFill &&
+        !isTymIcon &&
+        (!_this.isPlaying ||
+          (songNode && !songNode.classList.contains("active")))
+      ) {
+        _this.currentIndex = Number(songNode.getAttribute("index"));
+        _this.loadCurrentSong();
+        $(".playList-container__item.active").classList.remove("active");
+        songNode.classList.add("active", "isplaying");
+        audio.play();
       }
+    };
+
+    //Xử lý âm lượng
+
+    //Điều chỉnh thanh âm lượng âm lượng
+    let volume = document.querySelector(".range-volume");
+    let volume_fill = document.querySelector(".volume-fill");
+    volume.oninput = function () {
+      volume_fill.style.width = volume.value + "% ";
+      audio.volume = volume.value / 100;
+    };
+
+    var beginVolume = audio.volume;
+    volumeIcon.onclick = function () {
+      _this.isVolume = !_this.isVolume;
+      audio.volume = _this.isVolume ? 0 : beginVolume;
     };
   },
 
@@ -1015,6 +1029,7 @@ const app = {
     center / contain`;
     songName.textContent = this.currentSong.song_name;
     singer.textContent = this.currentSong.song_author[0];
+    timeEnd.textContent = this.currentSong.time_song;
     audio.src = this.currentSong.src;
   },
 

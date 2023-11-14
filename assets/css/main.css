@@ -318,6 +318,11 @@
   -webkit-box-orient: vertical;
 }
 
+.player-media-content-namesong {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .player-media-content-namesong:hover span {
   color: var(--text-hover-pink);
   cursor: pointer;
@@ -394,6 +399,20 @@
   flex: 1;
 }
 
+.time-song-start {
+  position: absolute;
+  color: var(--text-color);
+  left: -40px;
+  top: 4px;
+}
+
+.time-song-end {
+  position: absolute;
+  color: var(--text-color);
+  right: -40px;
+  top: 4px;
+}
+
 .range-time-song {
   -webkit-appearance: none; /*Loại bỏ style mặc định*/
   appearance: none;
@@ -411,7 +430,7 @@
   height: 3px;
   left: 0;
   top: 10px;
-  background-color: var(--text-color);
+  background-color: white;
   z-index: 1;
   border-radius: 2px;
 }
@@ -469,36 +488,7 @@
 }
 
 /*thumb volume*/
-.range-value::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 50%;
-  width: 3px;
-  height: 3px;
-  cursor: pointer;
-  z-index: 100;
-}
-
-.player-option-adjust-volume:hover .range-value::-webkit-slider-thumb {
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-  z-index: 100;
-  background: var(--text-color);
-}
-
-.volume-fill {
-  position: absolute;
-  width: 50%;
-  height: 3px;
-  left: 0;
-  top: 0px;
-  background-color: var(--text-color);
-  z-index: 1;
-  border-radius: 2px;
-}
-
-.range-value {
+.range-volume {
   -webkit-appearance: none;
   appearance: none;
   width: 70px;
@@ -510,6 +500,35 @@
   transform: translateY(-50%);
   left: 0;
   background: var(--bg-content);
+}
+
+.range-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 3px;
+  height: 3px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.player-option-adjust-volume:hover .range-volume::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  z-index: 100;
+  background: white;
+}
+
+.volume-fill {
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  left: 0;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  border-radius: 2px;
 }
 
 /*List player*/
@@ -817,7 +836,6 @@ span.live {
   align-items: center;
   position: relative;
   padding-top: 15px;
-  margin-top: 70px;
   z-index: 1;
 }
 
