@@ -34,10 +34,14 @@
   flex-direction: column;
 }
 
-.app_sidebar-logo img {
+.app_sidebar-logo .logo-full {
   width: 135px;
   height: 32px;
   margin: 15px auto 20px 20px;
+}
+
+.app_sidebar-logo .sidebar__small-logo {
+  display: none;
 }
 
 /* Page ca nhan , theo doi v.v.... */
@@ -575,6 +579,7 @@ span.live {
   position: fixed;
   top: 0;
   z-index: 100;
+  padding-left: 30px;
 }
 
 .header__search {
@@ -965,7 +970,8 @@ span.live {
 .navbar-content__item {
   display: inline-block;
   border-radius: 20px;
-  min-width: 100px;
+  max-width: 100px;
+  width: 90px;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
