@@ -930,6 +930,9 @@ const app = {
       const rangeTime = $(".range-time-song--fill");
       rangeTime.style.width = (audio.currentTime / audio.duration) * 100 + "%";
       $(".range-time-song").value = (audio.currentTime / audio.duration) * 100;
+
+      const stringTime = _this.formatTimeSong(audio.currentTime);
+      timeStart.textContent = stringTime;
     };
 
     //Xử lý next , prev bài hát
@@ -1056,6 +1059,15 @@ const app = {
     } while (newIndex === this.currentIndex); // Nếu giá trị random mới bằng index bài hát hiện tại thì phải tiếp tục random
     this.currentIndex = newIndex;
     this.loadCurrentSong();
+  },
+
+  formatTimeSong: function (seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const second = Math.floor(seconds % 60);
+    //Thêm kí tự 0 vào đầu chuỗi cho đến khi đạt được độ dài là 2 kí tự ( 5 => 05)
+    const formatMinutes = String(minutes).padStart(2, "0");
+    const formatSeconds = String(second).padStart(2, "0");
+    return `${formatMinutes}:${formatSeconds}`;
   },
 
   start: function () {
