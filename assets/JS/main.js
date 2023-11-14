@@ -405,7 +405,7 @@ const app = {
   //Xử lý render nội dung
   renderSong: function () {
     const songHtml = this.songs.map((song, index) => {
-      return `<div class="playList-container__item col l-12 " index ='${index}'>
+      return `<div class="playList-container__item" index ='${index}'>
                 <div class="playList-container__img mr-16" style="background: url(${
                   song.image
                 }) no-repeat center center / cover;">
@@ -442,7 +442,7 @@ const app = {
   },
   renderPlaylist: function () {
     const playlistHtml = this.playlists.map((playlist) => {
-      return `<div class="col l-2-4 playList-item">
+      return `<div class="col l-2-4 m-3 c-4 playList-item">
       <div class="item-image-container br-4">
           <div class="playList-Album-item__img br-4" style="background: url(${playlist.image}) no-repeat center center / cover;">
           </div>
@@ -495,7 +495,7 @@ const app = {
   },
   renderAlbum: function () {
     const albumHtml = this.albums.map((album) => {
-      return `<div class="col l-2-4 album-item">
+      return `<div class="col l-2-4 m-3 c-4 album-item">
       <div class="item-image-container br-4">
           <div class="playList-Album-item__img br-4" style="background: url(${album.image}) no-repeat center center / cover;">
           </div>
@@ -547,7 +547,7 @@ const app = {
   },
   renderMv: function () {
     const mvHtml = this.mvs.map((mv) => {
-      return `<div class="col l-4 mv-item">
+      return `<div class="col l-4 m-6 c-12 mv-item">
       <div class="item-image-container br-4">
           <div class="mvItem-img br-4" style="background: url('${mv.image}') no-repeat center center / cover;">
           </div>
@@ -606,7 +606,7 @@ const app = {
   },
   renderArtist: function () {
     const artistHtml = this.artists.map((artist) => {
-      return `<div class="col l-2-4 artist-item mt-50">
+      return `<div class="col l-2-4 m-3 c-4 artist-item mt-20">
       <div class="item-image-container br-4 rounded">
           <div class="playList-Album-item__img br-4" style="background: url('${artist.image}') no-repeat center center / cover;">
           </div>
@@ -1029,7 +1029,7 @@ const app = {
 
   loadCurrentSong: function () {
     cdThump.style.background = `url(${this.currentSong.image}) no-repeat center
-    center / contain`;
+    center / cover`;
     songName.textContent = this.currentSong.song_name;
     singer.textContent = this.currentSong.song_author[0];
     timeEnd.textContent = this.currentSong.time_song;

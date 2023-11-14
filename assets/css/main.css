@@ -998,10 +998,6 @@ span.live {
   display: block;
 }
 
-.home_container__music {
-  margin-bottom: 50px;
-}
-
 .home_container__music-header {
   display: flex;
   justify-content: space-between;
