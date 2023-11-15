@@ -102,8 +102,7 @@
   .body_content,
   .header__user,
   .navbar-content {
-    padding: 0 0 0;
-    margin-left: 85px;
+    padding: 0 0 0 85px;
   }
 
   .header__user {

@@ -520,7 +520,7 @@ const app = {
     });
 
     const album2Html = this.albums.map((album) => {
-      return `<div class="col l-2-4 album-item mt-20">
+      return `<div class="col l-2-4 m-4 c-6 album-item mt-20">
       <div class="item-image-container br-4">
           <div class="playList-Album-item__img br-4" style="background: url(${album.image}) no-repeat center center / cover;">
           </div>
